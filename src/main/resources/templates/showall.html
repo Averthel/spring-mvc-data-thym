@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All comments</title>
+</head>
+<body>
+    <div th:if="not ${allComments.isEmpty()}">
+        <h1>All comments</h1>
+        <table border="1">
+            <tr>
+                <th>Nickname</th>
+                <th>Comment</th>
+            </tr>
+            <tr th:each="singleComment: ${allComments}" th:object="${singleComment}">
+                <td th:text="*{nickname}">Ave</td>
+                <td th:text="*{commentContent}">Siemandero!</td>
+            </tr>
+        </table>
+    </div>
+<div th:if="${allComments.isEmpty()}">
+    <h1> No comments yet :( </h1>
+</div>
+</body>
+</html>
